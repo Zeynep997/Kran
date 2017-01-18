@@ -61,10 +61,9 @@ public class Kran {
 		// nodes
 		double b = 1000.0; // mm
 		double h = 1000.0; // mm
-		model.createNode(1, -b, 0, 0);
-		model.createNode(2, 0, 0, 0);
-		model.createNode(3, b, 0, 0);
-		model.createNode(4, 0, -h, 0);
+		model.createNode(1, -b, 0, 0);  // Zentraler Punkt Anker
+		model.createNode(2, b, 0, 0);
+		model.createNode(3, 0, -h, 0);
 
 		// forces
 		Force f = new Force();
@@ -82,10 +81,7 @@ public class Kran {
 
 		// elements
 		model.createElement(1, Truss2D.TYPE, model.getMaterial(1),
-
 			model.getRealtable(1), model.getNode(1), model.getNode(4));
-		model.createElement(2, Truss2D.TYPE, model.getMaterial(1),
-				model.getRealtable(2), model.getNode(2), model.getNode(4));
 		model.createElement(3, Truss2D.TYPE, model.getMaterial(1),
 				model.getRealtable(3), model.getNode(3), model.getNode(4));
 	
